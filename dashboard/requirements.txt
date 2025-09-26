@@ -1,0 +1,2 @@
+-r db_manager/db-requirements.txt
+-r textual/requirements.txt

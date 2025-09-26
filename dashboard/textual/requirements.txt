@@ -1,0 +1,4 @@
+# Textual TUI framework
+textual>=0.74
+# Async HTTP
+httpx>=0.27

@@ -1,0 +1,19 @@
+[Unit]
+Description=Homelab Agent (sends machine metrics to FastAPI)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=%i
+Group=%i
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/opt/homelab-agent/venv/bin/python /opt/homelab-agent/homelab_agent.py
+Restart=always
+RestartSec=5
+# Give it access to the env file location (read-only is fine)
+ReadOnlyPaths=/etc/homelab-agent
+# Log file is configured in .env; systemd still captures stdout/stderr
+
+[Install]
+WantedBy=multi-user.target
